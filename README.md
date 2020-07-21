@@ -1,5 +1,8 @@
-# Bootcamp Online IGTI - Desenvolvedor Full Stack
-> O Bootcamp tem como objetivo oferecer uma formação prática e intensiva que habilite o profissional para atuar como desenvolvedor Full Stack.
+<h1 align="center">
+:computer: Bootcamp Online IGTI - Desenvolvedor Full Stack
+</h1>
+
+<h3>O Bootcamp tem como objetivo oferecer uma formação prática e intensiva que habilite o profissional para atuar como desenvolvedor Full Stack.</h3>
 
 >Conheça técnicas de construção de uma aplicação passando por todas as suas camadas lógicas - backend, frontend, persistência de dados NoSQL, controle de versionamento de código com Git e implantação em nuvem - habilitando-se para atuar profissionalmente na área.
 
