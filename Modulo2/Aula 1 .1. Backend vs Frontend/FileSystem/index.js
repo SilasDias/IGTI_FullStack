@@ -3,12 +3,34 @@ import { inherits } from 'util';
 
 // usando promises com  async await
 init();
+writeReadJason();
 
 async function init() {
   try {
     await fs.writeFile('teste.txt', 'bla bla bla');
     await fs.appendFile('teste.txt', '\nteste append file', 'utf-8');
     const data = await fs.readFile('teste.txt', 'utf-8');
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function writeReadJason() {
+  try {
+    // Escrito com valores iniciais
+    const arrayCar = ['Gol', 'Pálio', 'Uno'];
+    const obj = { carros: arrayCar };
+    await fs.writeFile('teste.json', JSON.stringify(obj));
+
+    //Leiturado conteudo atual
+    const data = JSON.parse(await fs.readFile('teste.json'));
+
+    // Conteudo modificado
+    data.carros.push('Sandero');
+
+    // Sobrescrito o arquivo com o conteudo modificado
+    await fs.writeFile('teste.json', JSON.stringify(data));
     console.log(data);
   } catch (err) {
     console.log(err);
