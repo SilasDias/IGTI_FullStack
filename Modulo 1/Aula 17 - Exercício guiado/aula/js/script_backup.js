@@ -35,7 +35,7 @@ async function fetchCountries() {
   const res = await fetch('https://restcountries.eu/rest/v2/all');
   const json = await res.json();
 
-  allCountries = json.map(country => {
+  allCountries = json.map((country) => {
     const { numericCode, translations, population, flag } = country;
 
     return {
@@ -43,7 +43,7 @@ async function fetchCountries() {
       name: translations.pt,
       population,
       formattedPopulation: formatNumber(population),
-      flag
+      flag,
     };
   });
 
@@ -61,7 +61,7 @@ function render() {
 function renderCountryList() {
   let countriesHTML = '<div>';
 
-  allCountries.forEach(country => {
+  allCountries.forEach((country) => {
     const { name, flag, id, population, formattedPopulation } = country;
 
     const countryHTML = `
@@ -91,7 +91,7 @@ function renderCountryList() {
 function renderFavorites() {
   let favoritesHTML = '<div>';
 
-  favoriteCountries.forEach(country => {
+  favoriteCountries.forEach((country) => {
     const { name, flag, id, population, formattedPopulation } = country;
 
     const favoriteCountryHTML = `
@@ -138,17 +138,17 @@ function handleCountryButtons() {
   const countryButtons = Array.from(tabCountries.querySelectorAll('.btn'));
   const favoriteButtons = Array.from(tabFavorites.querySelectorAll('.btn'));
 
-  countryButtons.forEach(button => {
+  countryButtons.forEach((button) => {
     button.addEventListener('click', () => addToFavorites(button.id));
   });
 
-  favoriteButtons.forEach(button => {
+  favoriteButtons.forEach((button) => {
     button.addEventListener('click', () => removeFromFavorites(button.id));
   });
 }
 
 function addToFavorites(id) {
-  const countryToAdd = allCountries.find(country => country.id === id);
+  const countryToAdd = allCountries.find((country) => country.id === id);
 
   favoriteCountries = [...favoriteCountries, countryToAdd];
 
@@ -156,13 +156,15 @@ function addToFavorites(id) {
     return a.name.localeCompare(b.name);
   });
 
-  allCountries = allCountries.filter(country => country.id !== id);
+  allCountries = allCountries.filter((country) => country.id !== id);
 
   render();
 }
 
 function removeFromFavorites(id) {
-  const countryToRemove = favoriteCountries.find(country => country.id === id);
+  const countryToRemove = favoriteCountries.find(
+    (country) => country.id === id
+  );
 
   allCountries = [...allCountries, countryToRemove];
 
@@ -170,7 +172,7 @@ function removeFromFavorites(id) {
     return a.name.localeCompare(b.name);
   });
 
-  favoriteCountries = favoriteCountries.filter(country => country.id !== id);
+  favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
 
   render();
 }

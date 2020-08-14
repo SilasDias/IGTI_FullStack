@@ -1,0 +1,25 @@
+{
+  "nextId": 5,
+  "accounts": [
+    {
+      "name": "Silas Dias",
+      "balance": 200,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Silas Dias",
+      "balance": 200
+    },
+    {
+      "id": 3,
+      "name": "Hapia Falcon",
+      "balance": 1450.2
+    },
+    {
+      "id": 4,
+      "name": "Eduardo Birgas",
+      "balance": 1000
+    }
+  ]
+}
