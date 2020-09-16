@@ -1,0 +1,6 @@
+DELETE
+db.COLLECTION.deleteOne(filter, delete, option)
+db.student.deleteOne({_id:ObjectId("5f5686cd83eb53fec10a19b6")})
+
+MANY
+db.COLLECTION.deleteMany(filter, delete, option)

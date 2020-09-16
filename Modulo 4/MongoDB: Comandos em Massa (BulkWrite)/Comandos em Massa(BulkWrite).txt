@@ -1,0 +1,31 @@
+BULKWRITE
+db.COLLECTION.BULKWRITE([operation1,operation2...], option) 
+
+db.student.bulkWrite([{insertOne:{
+  "document":{name: "Thiago Peixoto", subject: "Fisica", type: "Prova Final",
+   value:16, timestamp: new Date()}
+   }},
+   {insertOne:{
+  "document":{name: "Patricia Rafaela", subject: "Portugues", type: "Trabalho Pratico",
+   value:21.3, timestamp: new Date()}
+   }},
+   {updateOne:{"filter":{name: "Marco Antonio"},
+   "update":{$set: {subject:"Historia"}}
+   }},
+   {deleteOne: {
+     "filter":{name:"Pedro Augusto", type:"Trabalho Pratico", subject:"Historia"}
+   }},
+   {replaceOne:{"filter":{_id:ObjectId("5f56882683eb53fec10a19b8")},
+   "replacement":{name:"Tais Fernandes",subject:"Fisica", type:"Trabalho Pratico",
+    value:12, lastModified: new Date()}   
+   }}
+   ])
+
+
+ {ordered:false} - para sair do sequencia.
+insertOne
+updateOne
+updateMany
+deleteOne
+deleteMany
+replaceOne

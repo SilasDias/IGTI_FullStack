@@ -1,0 +1,27 @@
+UPDATEONE
+db.COLLECTION.updateOne(query, update, options) 
+$set:
+db.student.updateOne({name:"Ana Maria Silva", subject: "Portugues"}, {$set: {type:"Prova Final"}})
+
+$inc:
+db.student.updateOne({name:"Marco Antonio", subject: "Matematica"}, {$inc: {value:10}})
+
+UPDAMANY
+db.COLLECTION.updateMany(query, update, options) 
+
+$inc;
+db.student.updateMany({subject: "Historia"}, {$inc: {value:10}})
+
+$set: hora modificado
+db.student.updateMany({}, {$set: {lastModified:"$$NOW", timestamp:"$$CLUSTER_TIME"}})
+
+$currentDate: hora modificado
+db.student.updateMany({}, {$currentDate: {lastModified:true, timestamp:{$type:"timestamp"}}})
+
+UNSET
+db.student.updateMany({}, {$unset: {timestamp:1}})
+
+REPLACEONE: substitui um documento inteiro
+db.COLLECTION.replaceOne(query, update, options) 
+db.student.replaceOne({_id:ObjectId("5f56813683eb53fec10a19b3")}, {name: "Lucas Pereira", subject: "Fisica", type:"Prova Final", value: 15.4, lastModified: true})
+

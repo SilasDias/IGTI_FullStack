@@ -1,0 +1,42 @@
+db.student.find({}, {_id:0, name:1, value:1})
+
+db.student.find({}, {_id:0, name:1, value:1}).limit(4)
+
+db.student.find({}, {_id:0, name:1, value:1}).limit(4).skip(2)
+
+db.student.find({}, {_id:0, name:1, value:1}).sort({name:1})
+
+db.student.findOne(query,projection)
+
+db.student.find({subject:"Quimica"},{_id:0}).pretty()
+
+Operadores logicos (querys):
+$and, $not, $nor, $or
+db.student.find({})
+
+E Operador "e" logico
+$and: [{subject:"Quimica"}, type:{"Prova Final"}]
+db.student.find({$and: [{subject:"Quimica"}, {type:"Matematica"}]},{_id:0}).pretty() 
+
+$not
+
+NOR traz tudo que for diferente
+$nor: [{subject:"Quimica"}, type:{"Prova Final"}] // Nega todos inseridos
+db.student.find({$nor: [{subject:"Quimica"}, {type:"Matematica"}]},{_id:0}).pretty()
+
+Or operador logico "ou"
+$or: [{subject:"Quimica"}, subject:{"Matematica"}] // Operador OU
+db.student.find({$or: [{subject:"Quimica"}, {type:"Matematica"}]},{_id:0}).pretty()
+
+Operadores de comparação:
+$eq (=) igual a que
+$gt (>) Maior que
+$gte (> =) Maior ou igual a
+$in seja igual
+$lt <) Menor que
+$lte (<=) Menor ou igual a
+$ne
+$nin
+db.student.find({value: {$gt:20}},{_id:0}).pretty()
+db.student.find({subject: {$in:["Quimica", "Matematica"]}},{_id:0}).pretty()
+
